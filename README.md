@@ -1,1 +1,1 @@
-# learn-dsa
+# Data structure and algorithms
