@@ -1,20 +1,20 @@
-function swapValue(arr, xp, yp)
+function swapValue(itemContainer, firstItem, secondItem)
 {
-	var temp = arr[xp];
-	arr[xp] = arr[yp];
-	arr[yp] = temp;
+	var tempItem = itemContainer[firstItem];
+	itemContainer[firstItem] = itemContainer[secondItem];
+	itemContainer[secondItem] = tempItem;
 }
 
-function bubbleSort( arr, n)
+function bubbleSort( itemContainer, itemLength )
 {
-    var i, j;
-    for (i = 0; i < n-1; i++)
+    var firstIterator, secondIterator;
+    for (firstIterator = 0; firstIterator < itemLength-1; firstIterator++)
     {
-        for (j = 0; j < n-i-1; j++)
+        for (secondIterator = 0; secondIterator < itemLength-firstIterator-1; secondIterator++)
         {
-            if (arr[j] > arr[j+1])
+            if (itemContainer[secondIterator] > itemContainer[secondIterator+1])
             {
-                swapValue(arr,j,j+1);
+                swapValue(itemContainer,secondIterator,secondIterator+1);
             }
         }
 
@@ -22,21 +22,21 @@ function bubbleSort( arr, n)
 }
 
 /* Function to print an array */
-function printArray(arr, size)
+function printItems(itemContainer, size)
 {
-	var i;
-	for (i=0; i < size; i++)
-		document.write(arr[i]+ " ");
+	var iterator;
+	for (iterator=0; iterator < size; iterator++)
+		document.write(itemContainer[iterator]+ " ");
 	document.write("\n");
 }
 
 // Driver program to test above functions
-var arr = [5, 1, 4, 2, 8];
-var n = 5;
+var targetItems = [5, 1, 4, 2, 8];
+var targetLength = 5;
 document.write("UnSorted array: \n");
-printArray(arr, n);
+printItems(targetItems, targetLength);
 
-bubbleSort(arr, n);
+bubbleSort(targetItems, targetLength);
 document.write("Sorted array: \n");
-printArray(arr, n);
+printItems(targetItems, targetLength);
 
