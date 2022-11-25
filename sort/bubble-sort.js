@@ -5,7 +5,7 @@ function swapValue(arr, xp, yp)
 	arr[yp] = temp;
 }
 
-function swapValue( arr, n)
+function bubbleSort( arr, n)
 {
     var i, j;
     for (i = 0; i < n-1; i++)
