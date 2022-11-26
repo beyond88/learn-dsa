@@ -23,14 +23,31 @@ Input: arr[] = {-2, 45, 0, 11, -9}
 
 ```
 - Bubble sort starts with very first two elements, comparing them to check which one is greater.
-- ( -2, 45, 0, 11, -9 ) –> ( -2, 45, 0, 11, -9 ), Here, nothing will happen in the first iteration.
+- ( -2, 45, 0, 11, -9 ) –> ( -2, 45, 0, 11, -9 ), Here, nothing will be swaped in the first iteration.
 - ( -2, 45, 0, 11, -9 ) –> ( -2, 0, 45, 11, -9 ), Here, algorithm compares the second two elements, and swaps since 45 > 0.
 - ( -2, 0, 45, 11, -9 ) –> ( -2, 0, 11, 45, -9 ), Here, algorithm compares the third two elements, and swaps since 45 > 11.
 - ( -2, 0, 11, 45, -9 ) –> ( -2, 0, 11, -9, 45 ), Here, algorithm compares the forth two elements, and swaps since 45 > -9.
 ```
 
-<strong>Remaining Iteration:</strong> The same process goes on for the remaining iterations. After each iteration, the largest element among the unsorted elements is placed at the end.
+<strong>Second Iteration:</strong> The same process goes on for the remaining iterations. After each iteration, the largest element among the unsorted elements is placed at the end.
 
 ```
+- ( -2, 0, 11, -9, 45 ) –> ( -2, 0, 11, -9, 45 ), Here, nothing will be swaped in the first iteration because of 0 > -2.
+- ( -2, 0, 11, -9, 45 ) –> ( -2, 0, 11, -9, 45 ), Here, nothing will be swaped in the second iteration because of 11 > 0.
+- ( -2, 0, 11, -9, 45 ) –> ( -2, 0, -9, 11, 45 ), Here, algorithm compares the third two elements, and swaps since 11 > -9.
+```
+
+<strong>Remaining Iteration:</strong>
 
 ```
+- ( -2, 0, -9, 11, 45 ) –> ( -2, 0, -9, 11, 45 ), Here, nothing will be swaped in the first iteration because of 0 > -2.
+- ( -2, 0, -9, 11, 45 ) –> ( -2, -9, 0, 11, 45 ), Here, algorithm compares the second two elements, and swaps since 0 > -9.
+```
+
+<strong>Another Remaining Iteration:</strong>
+
+```
+- ( -2, -9, 0, 11, 45 ) –> ( -9, -2, 0, 11, 45 ), Here, algorithm compares the first two elements, and swaps since -2 > -9.
+```
+
+The array is sorted when all the unsorted elements are placed at their correct positions and final array will be look like: `( -9, -2, 0, 11, 45 )`
