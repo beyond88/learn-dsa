@@ -1,9 +1,9 @@
 
 // JavaScript program for Merge Sort
 
-// Merges two subarrays of arr[].
-// First subarray is arr[l..m]
-// Second subarray is arr[m+1..r]
+// Merges two subarrays of itemContainer[].
+// First subarray is itemContainer[..midIndex]
+// Second subarray is itemContainer[midIndex+leftIndex1..rightIndex]
 function merge(itemContainer, leftIndex, midIndex, rightIndex)
 {
 	var n1 = midIndex - leftIndex + 1;
@@ -13,13 +13,13 @@ function merge(itemContainer, leftIndex, midIndex, rightIndex)
 	var leftSubArray = new Array(n1);
 	var rightSubArray = new Array(n2);
 
-	// Copy data to temp arrays L[] and R[]
+	// Copy data to temp arrays leftSubArray[] and rightSubArray[]
 	for (var i = 0; i < n1; i++)
     leftSubArray[i] = itemContainer[leftIndex + i];
 	for (var j = 0; j < n2; j++)
     rightSubArray[j] = itemContainer[midIndex + 1 + j];
 
-	// Merge the temp arrays back into arr[l..r]
+	// Merge the temp arrays back into itemContainer[leftIndex..rightIndex]
 
 	// Initial index of first subarray
 	var initialFirstSubArrayIndex = 0;
@@ -43,7 +43,7 @@ function merge(itemContainer, leftIndex, midIndex, rightIndex)
 	}
 
 	// Copy the remaining elements of
-	// L[], if there are any
+	// leftSubArray[], if there are any
 	while (initialFirstSubArrayIndex < n1) {
 		itemContainer[initialMergedSubArrayIndex] = leftSubArray[initialFirstSubArrayIndex];
 		initialFirstSubArrayIndex++;
@@ -51,7 +51,7 @@ function merge(itemContainer, leftIndex, midIndex, rightIndex)
 	}
 
 	// Copy the remaining elements of
-	// R[], if there are any
+	// rightSubArray[], if there are any
 	while (initialSecondSubArrayIndex < n2) {
 		itemContainer[initialMergedSubArrayIndex] = rightSubArray[initialSecondSubArrayIndex];
 		initialSecondSubArrayIndex++;
@@ -80,7 +80,6 @@ function printItems( A, size )
 	for (var i = 0; i < size; i++)
 	document.write( A[i] + " ");
 }
-
 
 var targetItems = [ 12, 11, 13, 5, 6, 7 ];
 var totalItems = targetItems.length;
